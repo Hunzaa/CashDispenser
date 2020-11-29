@@ -15,10 +15,12 @@ public class Dispenser {
         Scanner input = new Scanner(System.in);
         amount = input.nextInt();
 
-        if ((amount % 10 != 0) && (amount > 10)) {
-            System.out.println("Amount should be in multiple of 10s.");
+        int remainder = amount % 10;
+        if ((amount > 10) && (remainder != 0)) {
+            System.out.println("Error! Amount should be in multiple of 10s.");
         } else {
             c1.dispense(new Cash(amount));
+            System.out.println("Total amount dispensed = €" + amount);
         }
     }
 }
