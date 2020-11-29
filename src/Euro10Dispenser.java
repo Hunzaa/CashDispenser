@@ -16,7 +16,7 @@ public class Euro10Dispenser implements DispenseChain {
             if (remainder != 0)
                 nextInChain.dispense(new Cash(remainder));
         } else {
-            System.out.println("Amount should be greater than or equal to 10.");
+            System.out.println("Error! Not enough amount. Minimum amount is €10. ");
         }
     }
 }

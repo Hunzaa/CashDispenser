@@ -3,17 +3,18 @@ import java.util.Scanner;
 public class Dispenser {
     public static void main(String[] args) {
 
+        DispenseChain c1 = new Euro50Dispenser();
+        DispenseChain c2 = new Euro20Dispenser();
+        DispenseChain c3 = new Euro10Dispenser();
+
+        c1.setNextChain(c2);
+        c2.setNextChain(c3);
+
         int amount = 0;
         System.out.println("Enter amount to dispense: ");
         Scanner input = new Scanner(System.in);
         amount = input.nextInt();
 
-        // display an error message if amount is less than or equal to zero
-        if (amount <= 0) {
-            System.out.println("Error! Amount should be greater than 0.");
-            return;
-        }
-        // process the amount
-        Cash.dispense(new Cash(amount));
+        c1.dispense(new Cash(amount));
     }
 }
