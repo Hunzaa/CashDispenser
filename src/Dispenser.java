@@ -15,6 +15,18 @@ public class Dispenser {
         Scanner input = new Scanner(System.in);
         amount = input.nextInt();
 
-        c1.dispense(new Cash(amount));
+        //not multiple of 10
+        if ((amount % 10 != 0) && (amount > 10)) {
+            System.out.println("Amount should be in multiple of 10s.");
+            return;
+        }
+        //less than 10
+        else if (amount < 10) {
+            System.out.println("Error! Not enough amount.");
+            return;
+        } else {
+            //process the amount
+            c1.dispense(new Cash(amount));
+        }
     }
 }
